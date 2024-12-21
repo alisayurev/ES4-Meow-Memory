@@ -1,5 +1,7 @@
 Alisa Yurevich, Morgan Schmidt, Owen Liao, Susan Nguyen
+
 Tufts ES4: Introduction to Digital Logic
+
 December 17, 2024
 
 Our game utilized an FPGA to create a visual-based memory game where four cats “meow” in a pseudo-random sequence on a screen. The user attempts to repeat this sequence by pushing four corresponding arcade buttons. If the user’s sequence is correct, the game progresses to a new round of randomized meows. When the user fails to repeat the sequence, the game ends. This implementation is divided into three main parts: VGA, ROM graphics, and game logic. 
