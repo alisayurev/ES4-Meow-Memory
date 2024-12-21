@@ -27,7 +27,6 @@ signal address: unsigned(14 downto 0);
 signal scaled_row : unsigned(6 downto 0);
 signal scaled_col : unsigned(7 downto 0);
 
-signal rulez : unsigned (5 downto 0); 
 signal startRGB : unsigned(5 downto 0);
 signal startArrowRGB : unsigned(5 downto 0);
 signal rulesArrowRGB : unsigned(5 downto 0);
@@ -94,6 +93,7 @@ component romBg is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component startScreen is 
 	port( 
 		clk : in std_logic;
@@ -101,6 +101,7 @@ component startScreen is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component startArrow is 
 	port(
 		clk : in std_logic;
@@ -108,6 +109,7 @@ component startArrow is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component meow1 is 
 	port(
 		clk : in std_logic;
@@ -115,6 +117,7 @@ component meow1 is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component meow2 is 
 	port(
 		clk : in std_logic;
@@ -122,6 +125,7 @@ component meow2 is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component meow3 is 
 	port(
 		clk : in std_logic;
@@ -129,6 +133,7 @@ component meow3 is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component meow4 is 
 	port(
 		clk : in std_logic;
@@ -136,6 +141,7 @@ component meow4 is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component pab is 
 	port(
 		clk : in std_logic;
@@ -143,6 +149,7 @@ component pab is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
+	
 component gameover is 
 	port(
 		clk : in std_logic;
@@ -150,27 +157,7 @@ component gameover is
 		rgb : out unsigned(5 downto 0)
 	);
 end component;
-component one is 
-	port(
-		clk : in std_logic;
-		address : in unsigned (14 downto 0); 
-		rgb : out unsigned(5 downto 0)
-	);
-end component;
-component two is 
-	port(
-		clk : in std_logic;
-		address : in unsigned (14 downto 0); 
-		rgb : out unsigned(5 downto 0)
-	);
-end component;
-component three is 
-	port(
-		clk : in std_logic;
-		address : in unsigned (14 downto 0); 
-		rgb : out unsigned(5 downto 0)
-	);
-end component;
+
 component yourturn is 
 	port(
 		clk : in std_logic;
@@ -236,21 +223,6 @@ end process;
 		clk => pGclk , 
 		address => address ,
 		rgb => gameoverRGB
-	);
-	oneport : one port map(
-		clk => pGclk , 
-		address => address ,
-		rgb => oneRGB
-	);
-	twoport : two port map(
-		clk => pGclk , 
-		address => address ,
-		rgb => twoRGB
-	);
-	threeport : three port map(
-		clk => pGclk , 
-		address => address ,
-		rgb => threeRGB
 	);
 	yourturnport : yourturn port map(
 		clk => pGclk , 
