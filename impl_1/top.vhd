@@ -50,7 +50,7 @@ architecture synth of top is
 	component topVGA is port(
 			fromPLL 	: in std_logic;
 			--startTrue	: in std_logic;
-			ruleTrue : in std_logic;
+			--ruleTrue : in std_logic;
 			gameoverTrue : in std_logic;
 			yourTurnBool : in std_logic;
 			gameStart	: in std_logic;
@@ -140,6 +140,7 @@ begin
 	vgaport : topVGA port map(
 		fromPLL => fromPLL , 
 		--startTrue => startTrue ,
+		--ruleTrue => ruleTrue,
 		gameoverTrue => gameOver , 
 		yourTurnBool => yourTurnBool2,
 		seqDone => seqDone,

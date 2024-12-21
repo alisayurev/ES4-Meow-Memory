@@ -56,7 +56,7 @@ component patternGen is
 		--catOut : in std_logic_vector(1 downto 0);
 		--startTrue	: in std_logic;
 		--startRulesArrowTrue : in std_logic;
-		ruleTrue : in std_logic;
+		--ruleTrue : in std_logic;
 		yourTurnBool : in std_logic;
 		gameStart	: in std_logic;
 		--threeTrue : in std_logic;
@@ -100,7 +100,7 @@ begin
 		--catOut => catOut ,
 		--startTrue => startTrue ,
 		--startRulesArrowTrue => startRulesArrowTrue ,
-		ruleTrue => ruleTrue ,
+		--ruleTrue => ruleTrue ,
 		--threeTrue => threeTrue , 
 		--twoTrue => twoTrue ,
 		--oneTrue => oneTrue ,

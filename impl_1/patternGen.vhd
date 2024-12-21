@@ -9,7 +9,7 @@ entity patternGen is
 		row : in unsigned(9 downto 0);
 		col : in unsigned (9 downto 0);
 		startTrue	: in std_logic;
-		ruleTrue : in std_logic;
+		--ruleTrue : in std_logic;
 		yourTurnBool : in std_logic;
 		gameoverTrue : in std_logic;
 		gameStart	: in std_logic;
@@ -83,6 +83,9 @@ signal fourcoladdr : unsigned(7 downto 0);
 signal fourrowaddr : unsigned(6 downto 0);
 
 signal adderZero : unsigned(14 downto 0);
+
+--added just so that it synthesizes
+signal ruleTrue : std_logic := '0';
 
 component romBg is
 	port(
