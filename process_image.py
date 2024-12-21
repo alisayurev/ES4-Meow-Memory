@@ -4,7 +4,7 @@ from PIL import Image
 def process_image(image_path):
     img = Image.open(image_path)
     img = img.convert('RGB')
-    if img.size != (160, 120):
+    if img.size != (160, 120): #pixel dimensions of image 
         raise ValueError("The image must be 120x160 pixels.")
     pixel_data = []
     for y in range(120):
@@ -25,7 +25,7 @@ def main():
     image_path = sys.argv[1]
     pixels = process_image(image_path)
     for address, vector in pixels:
-        if vector != 63: #change accordingly for transparenyc 
+        if vector != 63: #change accordingly for transparency
             print(f'when "{address:015b}" => rgb <= "{vector:06b}";')
 
 if __name__ == "__main__":
