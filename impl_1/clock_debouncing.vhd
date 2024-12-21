@@ -4,9 +4,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity clock_debouncing is 
     port(
-        clk      	: in std_logic;        --25Mhz pll
-		
-        slow_clock : out std_logic --output slow clock to use for deboucning
+        clk      	: in std_logic; --25Mhz pll clock
+        slow_clock 	: out std_logic --enable signal for debouncing register
     );
 end clock_debouncing;
 
@@ -19,7 +18,7 @@ architecture behavioral of clock_debouncing is
 
 signal counter: unsigned(18 downto 0) := (others => '0'); --19 bits ^ to be able to count to at least 500,000
 constant max_count : unsigned(18 downto 0) := to_unsigned(500_000, 19); 
-    signal bigcounter : unsigned(24 downto 0);
+signal bigcounter : unsigned(24 downto 0);
 
 
 begin
@@ -37,7 +36,6 @@ begin
 end process;
 
 --pulse the slow clock
-
 slow_clock <= '1' when counter = max_count else '0'; 
 
 end behavioral;
