@@ -39,33 +39,10 @@ signal gameoverRGB : unsigned(5 downto 0);
 signal yourturnRGB : unsigned(5 downto 0); 
 signal timerRGB : unsigned(5 downto 0); 
 
-signal zilchrgb : unsigned(5 downto 0);
-signal onesmallRGB : unsigned(5 downto 0);
-signal twosmallRGB : unsigned(5 downto 0);
-signal threesmallRGB : unsigned(5 downto 0);
-signal fourRGB : unsigned(5 downto 0);
-signal fiveRGB : unsigned(5 downto 0);
-signal sixRGB : unsigned(5 downto 0);
-signal sevenRGB : unsigned(5 downto 0);
-signal eightRGB : unsigned(5 downto 0);
-signal nineRGB : unsigned(5 downto 0);
-signal numRGB : unsigned(5 downto 0);
-
 signal meow1true : std_logic;
 signal meow2true : std_logic;
 signal meow3true : std_logic;
 signal meow4true : std_logic;
-
-signal zerotrue : std_logic;
-signal onesmalltrue : std_logic;
-signal twosmalltrue : std_logic;
-signal threesmalltrue : std_logic;
-signal fourtrue : std_logic;
-signal fivetrue : std_logic;
-signal sixtrue : std_logic;
-signal seventrue : std_logic;
-signal eighttrue : std_logic;
-signal ninetrue : std_logic;
 
 signal stateout : std_logic_vector(3 downto 0); 
 signal colout : unsigned(7 downto 0); 
@@ -168,7 +145,7 @@ begin
 
 scaled_row <= row(8 downto 2); 
 scaled_col <= col(9 downto 2);
--- Combine scaled row and column into a single address (15 bits total)
+--combine scaled row and column into a single address (15 bits total)
 
 process(pGclk) 
 begin
