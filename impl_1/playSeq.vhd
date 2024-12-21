@@ -5,37 +5,35 @@ use IEEE.numeric_std.all;
 entity playSeq is
         port (
                 clk     	: in std_logic;
-				counter 	: in unsigned(25 downto 0);				-- counter passed in to randomize the sequence
-				nextRound	: in std_logic;							-- user plays the correct sequence -> move onto the next sequence
-				gameOver	: in std_logic;
-				noIn		: in std_logic;
-				seqDone		: out std_logic;						-- sequence from game has been completed
-				pause		: out std_logic;						-- in pause state
-                catOut  	: out std_logic_vector(1 downto 0); 	-- cat that is gonna be displayed on VGA
-				catSeq  	: out std_logic_vector(15 downto 0);	-- randomized sequence to be passed to seqDetect
-				gameStart	: out std_logic;
-				yourTurnBool	: out std_logic 
+		counter 	: in unsigned(25 downto 0); -- counter passed in to randomize the sequence
+		nextRound	: in std_logic;	-- user plays the correct sequence -> move onto the next sequence
+		gameOver	: in std_logic;
+		noIn		: in std_logic;
+		seqDone		: out std_logic; -- sequence from game has been completed
+		pause		: out std_logic; -- in pause state
+                catOut  	: out std_logic_vector(1 downto 0); -- cat that is gonna be displayed on VGA
+		catSeq  	: out std_logic_vector(15 downto 0); -- randomized sequence to be passed to seqDetect
+		gameStart	: out std_logic;
+		yourTurnBool	: out std_logic 
 				
         );
 end playSeq;
 
 architecture synth of playSeq is
         type State is (START, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, DONE, YOURTURN, PAUSED, GAMEOVAH);
-		
         signal cat : STATE := ONE;
         signal bigcounter : unsigned(24 downto 0);
-		signal ranSeqLong : std_logic_vector(25 downto 0);
-		signal ranSeq : std_logic_vector(15 downto 0);
-		signal playCount : unsigned(3 downto 0) := "0000";
-	
+	signal ranSeqLong : std_logic_vector(25 downto 0);
+	signal ranSeq : std_logic_vector(15 downto 0);
+	signal playCount : unsigned(3 downto 0) := "0000";
 	
 begin
 ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 	process (clk) is begin
         if rising_edge(clk) then
-					ranSeq <= (ranSeqLong(0) xor ranSeqLong(15)) & ranSeqLong(15 downto 1);
-				case cat is
-					when START =>
+		ranSeq <= (ranSeqLong(0) xor ranSeqLong(15)) & ranSeqLong(15 downto 1);
+			case cat is
+				when START =>
 					gameStart <= '1';
 					pause <= '1';
 						if (noIn = '0') then
@@ -46,7 +44,6 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							cat <= ONE;
 						end if;
 					when ONE =>
-
 						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
@@ -60,7 +57,7 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							bigcounter <= bigcounter + 1;
 						end if;
 					when TWO =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -70,11 +67,11 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							seqDone <= '0';
 							pause <= '0';
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when THREE =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -84,11 +81,11 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							seqDone <= '0';
 							pause <= '0';
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when FOUR =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -98,11 +95,11 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							seqDone <= '0';
 							pause <= '0';
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when FIVE =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -116,7 +113,7 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							bigcounter <= bigcounter + 1;
 						end if;
 					when SIX =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -126,11 +123,11 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							seqDone <= '0';
 							pause <= '0';
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when SEVEN =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -140,11 +137,11 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							seqDone <= '0';
 							pause <= '0';
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when DONE =>
-					if (bigcounter = 20000000) then
+						if (bigcounter = 20000000) then
 							bigcounter <= 25d"0";
 							gameStart <= '0';
 							yourTurnBool <= '0';
@@ -154,9 +151,9 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							pause <= '0';
 							playCount <= playCount + 1;
 							cat <= PAUSED;
-					else
+						else
 							bigcounter <= bigcounter + 1;
-					end if;
+						end if;
 					when YOURTURN =>
 							if (nextRound = '1') then --click anthing to go back to start
 								yourTurnBool <= '0';
@@ -174,8 +171,8 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 								cat <= GAMEOVAH;
 							end if;
 					when PAUSED => 
-					if (bigcounter = 20000000) then
-					gameStart <= '0';
+						if (bigcounter = 20000000) then
+							gameStart <= '0';
 							bigcounter <= 25d"0";
 						if (playCount = 0) then
 							pause <= '1';
