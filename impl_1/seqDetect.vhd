@@ -28,20 +28,15 @@ begin
 
 		case cat is
 			 when START => -- beginning of round
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(15 downto 14) and noIn = '0' and seqDone = '1') then 
 						   cat <= ONE; --first cat read
 						   gOver <= '0';
 					elsif (noIn = '0' and seqDone = '1') then -- if wrong input
 						   cat <= GAMEOVER;
 							gOver <= '1';
-					--else
-						--cat <= START;
 					end if;
 					nextRound <= '0';
-					--cat <= START;
 			 when ONE => -- when first cat has been read
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(13 downto 12) and noIn = '0') then
 						   cat <= TWO;
 							gOver <= '0';
@@ -51,7 +46,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when TWO =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(11 downto 10) and noIn = '0') then
 						   cat <= THREE;
 							gOver <= '0';
@@ -61,7 +55,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when THREE =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(9 downto 8) and noIn = '0') then
 						   cat <= FOUR;
 							gOver <= '0';
@@ -71,7 +64,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when FOUR =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(7 downto 6) and noIn = '0') then
 						   cat <= FIVE;
 							gOver <= '0';
@@ -81,7 +73,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when FIVE =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(5 downto 4) and noIn = '0') then
 						   cat <= SIX;
 							gOver <= '0';
@@ -91,7 +82,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when SIX =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(3 downto 2) and noIn = '0') then
 						   cat <= SEVEN;
 							gOver <= '0';
@@ -101,7 +91,6 @@ begin
 					end if;
 					nextRound <= '0';
 			 when SEVEN =>
-			   --gOver <= '0'; -- continue game
 					if (input = ranSeq(1 downto 0) and noIn = '0') then
 						   cat <= START;
 						   nextRound <= '1';
@@ -110,15 +99,8 @@ begin
 						   cat <= GAMEOVER;
 							gOver <= '1';
 					end if;
-			 --when ROUNDOVER =>
-					--if (seqDone = '1' and playCount = 4d"0") then
-						   --cat <= START;
-						   --gOver <= '0';
-						   --nextRound <= '0';
-					--end if;
 			 when GAMEOVER => -- done reading in cats
 			   gOver <= '1';
-					-- send a signal to vga for pab!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					if (noIn = '0') then --click anthing to go back to start
 						   cat <= START;
 							gOver <= '0';
