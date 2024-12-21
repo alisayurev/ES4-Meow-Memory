@@ -36,9 +36,6 @@ signal meow3RGB : unsigned(5 downto 0);
 signal meow4RGB : unsigned(5 downto 0);
 signal pabRGB : unsigned(5 downto 0);
 signal gameoverRGB : unsigned(5 downto 0);
-signal oneRGB : unsigned(5 downto 0); 
-signal twoRGB : unsigned(5 downto 0);
-signal threeRGB : unsigned(5 downto 0);
 signal yourturnRGB : unsigned(5 downto 0); 
 signal timerRGB : unsigned(5 downto 0); 
 
