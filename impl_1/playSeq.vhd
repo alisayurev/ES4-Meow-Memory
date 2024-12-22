@@ -5,15 +5,15 @@ use IEEE.numeric_std.all;
 entity playSeq is
         port (
                 clk     	: in std_logic;
-		counter 	: in unsigned(25 downto 0); -- counter passed in to randomize the sequence
-		nextRound	: in std_logic;	-- user plays the correct sequence -> move onto the next sequence
+		counter 	: in unsigned(25 downto 0); 		-- counter passed in to randomize the sequence
+		nextRound	: in std_logic;				-- user plays the correct sequence -> move onto the next sequence
 		gameOver	: in std_logic;
-		noIn		: in std_logic;
-		seqDone		: out std_logic; -- sequence from game has been completed
-		pause		: out std_logic; -- in pause state
-                catOut  	: out std_logic_vector(1 downto 0); -- cat that is gonna be displayed on VGA
-		catSeq  	: out std_logic_vector(15 downto 0); -- randomized sequence to be passed to seqDetect
-		gameStart	: out std_logic;
+		noIn		: in std_logic; 			-- no user input
+		seqDone		: out std_logic; 			-- sequence from game has been completed
+		pause		: out std_logic; 			-- in pause state
+                catOut  	: out std_logic_vector(1 downto 0); 	-- cat that is gonna be displayed on VGA
+		catSeq  	: out std_logic_vector(15 downto 0); 	-- randomized sequence to be passed to seqDetect
+		gameStart	: out std_logic; 			
 		yourTurnBool	: out std_logic 
 				
         );
