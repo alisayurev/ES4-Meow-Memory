@@ -21,24 +21,15 @@ begin
         if rising_edge(clk) then
             case addressOut is
                 when "010100101000011" => rgb <= "000000";
-
                 when "010101001000011" => rgb <= "000000";
-                
                 when "010101001000100" => rgb <= "000000";
-                
                 when "010101101000011" => rgb <= "000000";
-                
                 when "010101101000100" => rgb <= "000000";
-                
                 when "010101101000101" => rgb <= "000000";
-                
                 when "010110001000011" => rgb <= "000000";
-                
                 when "010110001000100" => rgb <= "000000";
-                
                 when "010110101000011" => rgb <= "000000";
-
-                when others => rgb <= "111111"; --will update l8r
+                when others => rgb <= "111111";
             end case;
         end if;
     end process; 
