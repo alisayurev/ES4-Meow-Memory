@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity startArrow is --rom for the background
+entity startArrow is 
 port(
     clk : in std_logic;
 	address : in unsigned (14 downto 0); 
