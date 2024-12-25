@@ -44,8 +44,6 @@ signal gameoverTrue : std_logic;
 signal yourTurnBool2 : std_logic;
 signal gameStart	:  std_logic;
 
-
-
 -- COMPONENT DECLARATIONS -------------------------------------------------------------
 component topVGA is 
 	port(
@@ -53,7 +51,6 @@ component topVGA is
 		gameoverTrue 	: in std_logic;
 		yourTurnBool 	: in std_logic;
 		gameStart	: in std_logic;
-
 		seqDone 	: in std_logic; -- sequnece has been completed
 		pause		: in std_logic;
 		catOut  	: in std_logic_vector(1 downto 0); --cat that is gonna be played
