@@ -29,7 +29,6 @@ signal scaled_col : unsigned(7 downto 0);
 
 signal startRGB : unsigned(5 downto 0);
 signal startArrowRGB : unsigned(5 downto 0);
-signal rulesArrowRGB : unsigned(5 downto 0);
 signal meow1RGB : unsigned(5 downto 0);
 signal meow2RGB : unsigned(5 downto 0);
 signal meow3RGB : unsigned(5 downto 0);
@@ -37,27 +36,12 @@ signal meow4RGB : unsigned(5 downto 0);
 signal pabRGB : unsigned(5 downto 0);
 signal gameoverRGB : unsigned(5 downto 0);
 signal yourturnRGB : unsigned(5 downto 0); 
-signal timerRGB : unsigned(5 downto 0); 
 
 signal meow1true : std_logic;
 signal meow2true : std_logic;
 signal meow3true : std_logic;
 signal meow4true : std_logic;
 
-signal stateout : std_logic_vector(3 downto 0); 
-signal colout : unsigned(7 downto 0); 
-signal zerocoladdr : unsigned(7 downto 0);
-signal zerorowaddr : unsigned(6 downto 0);
-signal zerorowsig : unsigned(6 downto 0);
-signal zerocolsig : unsigned(7 downto 0);
-signal zerorowmove : unsigned(6 downto 0);
-signal zerocolmove : unsigned(7 downto 0);
-signal fourcoladdr : unsigned(7 downto 0);
-signal fourrowaddr : unsigned(6 downto 0);
-
-signal adderZero : unsigned(14 downto 0);
-
---added just so that it synthesizes
 signal ruleTrue : std_logic := '0';
 
 component romBg is
