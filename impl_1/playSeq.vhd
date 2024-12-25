@@ -20,6 +20,7 @@ entity playSeq is
 end playSeq;
 
 architecture synth of playSeq is
+	
         type State is (START, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, DONE, YOURTURN, PAUSED, GAMEOVAH);
         signal cat : STATE := ONE;
         signal bigcounter : unsigned(24 downto 0);
@@ -155,21 +156,21 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							bigcounter <= bigcounter + 1;
 						end if;
 					when YOURTURN =>
-							if (nextRound = '1') then --click anthing to go back to start
-								yourTurnBool <= '0';
-								gameStart <= '0';
-								pause <= '0';
-								playCount <= 4d"0";
-								seqDone <= '0';
-								cat <= PAUSED;
-							elsif (gameOver = '1') then 
-								gameStart <= '0';
-								yourTurnBool <= '0';
-								seqDone <= '0';
-								playCount <= 4d"0";
-								pause <= '0';
-								cat <= GAMEOVAH;
-							end if;
+						if (nextRound = '1') then --click anthing to go back to start
+							yourTurnBool <= '0';
+							gameStart <= '0';
+							pause <= '0';
+							playCount <= 4d"0";
+							seqDone <= '0';
+							cat <= PAUSED;
+						elsif (gameOver = '1') then 
+							gameStart <= '0';
+							yourTurnBool <= '0';
+							seqDone <= '0';
+							playCount <= 4d"0";
+							pause <= '0';
+							cat <= GAMEOVAH;
+						end if;
 					when PAUSED => 
 						if (bigcounter = 20000000) then
 							gameStart <= '0';
@@ -206,7 +207,7 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							cat <= YOURTURN;
 						end if;
 					else
-							bigcounter <= bigcounter + 1;
+						bigcounter <= bigcounter + 1;
 					end if;
 					when GAMEOVAH =>
 						gameStart <= '0';
@@ -214,14 +215,12 @@ ranSeqLong <= std_logic_vector(counter + counter mod 16d"16");
 							cat <= START;
 						end if;
 					when others =>
-							seqDone <= '0';
-							cat <= ONE;
-							yourTurnBool <= '0';
-							gameStart <= '0';
+						seqDone <= '0';
+						cat <= ONE;
+						yourTurnBool <= '0';
+						gameStart <= '0';
 					end case;
         end if;
         end process;
-		
-	
 		
 end synth;
