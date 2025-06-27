@@ -1,3 +1,6 @@
+# author: Alisa Yurevich
+# for ES4 2024
+
 import sys
 from PIL import Image
 
